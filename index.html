@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Client Portal & Admin API</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <aside class="sidebar" aria-label="Project summary">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">CP</span>
+        <div>
+          <p class="eyebrow">Sample full-stack project</p>
+          <h1>Client Portal & Admin API</h1>
+        </div>
+      </div>
+
+      <nav class="nav" aria-label="Dashboard sections">
+        <a href="#overview">Overview</a>
+        <a href="#requests">Requests</a>
+        <a href="#clients">Clients</a>
+        <a href="#api">API</a>
+      </nav>
+
+      <section class="sidebar-panel">
+        <p class="panel-label">Built for</p>
+        <p>Small agencies and service teams that need a client portal, internal task tracking, invoice status, and a clean admin API.</p>
+      </section>
+
+      <section class="sidebar-panel">
+        <p class="panel-label">Demo stack</p>
+        <ul>
+          <li>Responsive web dashboard</li>
+          <li>Node REST API server</li>
+          <li>JSON data model</li>
+          <li>Client-side fallback mode</li>
+        </ul>
+      </section>
+    </aside>
+
+    <main class="workspace">
+      <header class="topbar" id="overview">
+        <div>
+          <p class="eyebrow">OPERATIONS CONSOLE</p>
+          <h2>Service work, clients, invoices, and API activity in one place</h2>
+        </div>
+        <div class="toolbar" aria-label="Dashboard actions">
+          <button id="syncButton" class="button button-primary" type="button">Run API sync</button>
+          <button id="exportButton" class="button" type="button">Export report</button>
+        </div>
+      </header>
+
+      <section class="filters" aria-label="Filters">
+        <label>
+          Status
+          <select id="statusFilter">
+            <option value="all">All</option>
+          </select>
+        </label>
+        <label>
+          Owner
+          <select id="ownerFilter">
+            <option value="all">All</option>
+          </select>
+        </label>
+        <label class="search-label">
+          Search
+          <input id="searchInput" type="search" placeholder="Client, request, invoice, owner" />
+        </label>
+      </section>
+
+      <section class="metrics" aria-label="Key metrics">
+        <article class="metric metric-green">
+          <span>Monthly revenue</span>
+          <strong id="revenueMetric">$0</strong>
+          <small id="revenueDetail">0 active subscriptions</small>
+        </article>
+        <article class="metric metric-blue">
+          <span>Open requests</span>
+          <strong id="openMetric">0</strong>
+          <small>In progress, review, or blocked</small>
+        </article>
+        <article class="metric metric-red">
+          <span>SLA risk</span>
+          <strong id="riskMetric">0</strong>
+          <small>Blocked or due within 3 days</small>
+        </article>
+        <article class="metric metric-gold">
+          <span>Outstanding invoices</span>
+          <strong id="invoiceMetric">$0</strong>
+          <small id="invoiceDetail">0 unpaid invoices</small>
+        </article>
+      </section>
+
+      <section class="grid">
+        <article class="panel wide" id="requests">
+          <div class="panel-head">
+            <div>
+              <p class="eyebrow">REQUEST QUEUE</p>
+              <h3>Client requests</h3>
+            </div>
+            <span id="requestCount" class="pill">0 records</span>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Client</th>
+                  <th>Request</th>
+                  <th>Owner</th>
+                  <th>Status</th>
+                  <th>Due</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="requestRows"></tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="panel" id="clients">
+          <div class="panel-head">
+            <div>
+              <p class="eyebrow">CLIENT HEALTH</p>
+              <h3>Accounts</h3>
+            </div>
+          </div>
+          <div id="clientCards" class="client-list"></div>
+        </article>
+
+        <article class="panel">
+          <div class="panel-head">
+            <div>
+              <p class="eyebrow">WORKLOAD</p>
+              <h3>Owner load</h3>
+            </div>
+          </div>
+          <div id="ownerChart" class="bar-list" aria-label="Owner workload chart"></div>
+        </article>
+
+        <article class="panel">
+          <div class="panel-head">
+            <div>
+              <p class="eyebrow">INVOICES</p>
+              <h3>Payment status</h3>
+            </div>
+          </div>
+          <div id="invoiceList" class="invoice-list"></div>
+        </article>
+
+        <article class="panel">
+          <div class="panel-head">
+            <div>
+              <p class="eyebrow">CREATE REQUEST</p>
+              <h3>Admin form</h3>
+            </div>
+          </div>
+          <form id="requestForm" class="request-form">
+            <label>
+              Client
+              <select id="newClient"></select>
+            </label>
+            <label>
+              Request title
+              <input id="newTitle" type="text" value="Prepare onboarding checklist" />
+            </label>
+            <label>
+              Owner
+              <select id="newOwner"></select>
+            </label>
+            <label>
+              Due date
+              <input id="newDueDate" type="date" value="2026-07-16" />
+            </label>
+            <button class="button button-primary" type="submit">Create request</button>
+          </form>
+        </article>
+
+        <article class="panel wide" id="api">
+          <div class="panel-head">
+            <div>
+              <p class="eyebrow">API CONTRACT</p>
+              <h3>Backend endpoints included in repo</h3>
+            </div>
+            <button id="copySummaryButton" class="button" type="button">Copy handoff</button>
+          </div>
+          <div class="api-grid">
+            <div class="endpoint-list">
+              <code>GET /api/clients</code>
+              <code>GET /api/requests</code>
+              <code>POST /api/requests</code>
+              <code>PATCH /api/requests/:id</code>
+              <code>GET /api/invoices</code>
+              <code>GET /api/summary</code>
+            </div>
+            <textarea id="handoffText" readonly></textarea>
+          </div>
+        </article>
+
+        <article class="panel">
+          <div class="panel-head">
+            <div>
+              <p class="eyebrow">ACTIVITY LOG</p>
+              <h3>Recent events</h3>
+            </div>
+          </div>
+          <div id="activityLog" class="activity-log"></div>
+        </article>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>

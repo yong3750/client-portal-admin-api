@@ -1,0 +1,168 @@
+{
+  "clients": [
+    {
+      "id": "northstar",
+      "name": "Northstar Dental",
+      "plan": "Growth Ops",
+      "health": 82,
+      "owner": "Phil",
+      "monthlyRevenue": 1800,
+      "lastTouch": "2026-07-07"
+    },
+    {
+      "id": "harbor",
+      "name": "Harbor Coffee",
+      "plan": "Automation Care",
+      "health": 74,
+      "owner": "Mina",
+      "monthlyRevenue": 1250,
+      "lastTouch": "2026-07-08"
+    },
+    {
+      "id": "kindred",
+      "name": "Kindred Legal",
+      "plan": "Client Portal",
+      "health": 68,
+      "owner": "Jae",
+      "monthlyRevenue": 2100,
+      "lastTouch": "2026-07-05"
+    },
+    {
+      "id": "maple",
+      "name": "Maple Goods",
+      "plan": "Inventory Sync",
+      "health": 91,
+      "owner": "Phil",
+      "monthlyRevenue": 1650,
+      "lastTouch": "2026-07-09"
+    },
+    {
+      "id": "evergreen",
+      "name": "Evergreen Tutors",
+      "plan": "Support Desk",
+      "health": 79,
+      "owner": "Mina",
+      "monthlyRevenue": 980,
+      "lastTouch": "2026-07-06"
+    }
+  ],
+  "requests": [
+    {
+      "id": "REQ-1042",
+      "clientId": "northstar",
+      "title": "Add patient callback status to weekly report",
+      "owner": "Phil",
+      "status": "In Progress",
+      "dueDate": "2026-07-12",
+      "priority": "High"
+    },
+    {
+      "id": "REQ-1043",
+      "clientId": "harbor",
+      "title": "Connect wholesale order form to admin dashboard",
+      "owner": "Mina",
+      "status": "Review",
+      "dueDate": "2026-07-11",
+      "priority": "Medium"
+    },
+    {
+      "id": "REQ-1044",
+      "clientId": "kindred",
+      "title": "Fix document upload permissions for client portal",
+      "owner": "Jae",
+      "status": "Blocked",
+      "dueDate": "2026-07-10",
+      "priority": "High"
+    },
+    {
+      "id": "REQ-1045",
+      "clientId": "maple",
+      "title": "Build low-stock alert endpoint",
+      "owner": "Phil",
+      "status": "In Progress",
+      "dueDate": "2026-07-15",
+      "priority": "High"
+    },
+    {
+      "id": "REQ-1046",
+      "clientId": "evergreen",
+      "title": "Create tutor onboarding checklist",
+      "owner": "Mina",
+      "status": "Completed",
+      "dueDate": "2026-07-08",
+      "priority": "Low"
+    },
+    {
+      "id": "REQ-1047",
+      "clientId": "northstar",
+      "title": "Add invoice PDF link to account screen",
+      "owner": "Jae",
+      "status": "Review",
+      "dueDate": "2026-07-13",
+      "priority": "Medium"
+    },
+    {
+      "id": "REQ-1048",
+      "clientId": "harbor",
+      "title": "Import loyalty members from CSV",
+      "owner": "Phil",
+      "status": "In Progress",
+      "dueDate": "2026-07-16",
+      "priority": "Medium"
+    }
+  ],
+  "invoices": [
+    {
+      "id": "INV-6021",
+      "clientId": "northstar",
+      "amount": 1800,
+      "status": "Paid",
+      "dueDate": "2026-07-05"
+    },
+    {
+      "id": "INV-6022",
+      "clientId": "harbor",
+      "amount": 1250,
+      "status": "Unpaid",
+      "dueDate": "2026-07-14"
+    },
+    {
+      "id": "INV-6023",
+      "clientId": "kindred",
+      "amount": 2100,
+      "status": "Unpaid",
+      "dueDate": "2026-07-12"
+    },
+    {
+      "id": "INV-6024",
+      "clientId": "maple",
+      "amount": 1650,
+      "status": "Paid",
+      "dueDate": "2026-07-03"
+    },
+    {
+      "id": "INV-6025",
+      "clientId": "evergreen",
+      "amount": 980,
+      "status": "Draft",
+      "dueDate": "2026-07-19"
+    }
+  ],
+  "activity": [
+    {
+      "type": "api",
+      "message": "GET /api/summary returned dashboard totals in 42 ms.",
+      "time": "07:42"
+    },
+    {
+      "type": "request",
+      "message": "REQ-1044 marked blocked until final folder access is approved.",
+      "time": "07:35"
+    },
+    {
+      "type": "invoice",
+      "message": "Harbor Coffee invoice reminder queued for Friday.",
+      "time": "07:18"
+    }
+  ]
+}

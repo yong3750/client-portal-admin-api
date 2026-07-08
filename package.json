@@ -1,0 +1,10 @@
+{
+  "name": "client-portal-admin-api",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Sample full-stack client portal and admin API portfolio project.",
+  "scripts": {
+    "start": "node server.js",
+    "check": "node --check app.js && node --check server.js"
+  }
+}
