@@ -9,7 +9,7 @@ This project demonstrates a practical full-stack business application: a client 
 Static dashboard demo:
 
 ```text
-https://dalki-bot.github.io/client-portal-admin-api/
+https://yong3750.github.io/client-portal-admin-api/
 ```
 
 ## Problem
